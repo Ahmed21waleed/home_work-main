@@ -5,7 +5,7 @@ Write a Dart program that works with a nullable list of integers. If the list is
 */
 
 void main() {
-  List<int>? numbers = [10, 20, 30, 40, 50];
+  List<int>? numbers = [10, 20, 30];
 
   if (numbers == null || numbers.isEmpty) {
     print('No scores');

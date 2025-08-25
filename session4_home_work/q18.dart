@@ -5,7 +5,7 @@ Write a Dart program that reads environment variables from a map. If a value is 
 */
 
 void main() {
-  Map<String, String?> envVariables = {
+  Map<String, dynamic> envVariables = {
     'appName': 'My App',
     'ENV': 'prod',
     'productKey': null,
