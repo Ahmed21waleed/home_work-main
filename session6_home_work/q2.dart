@@ -2,9 +2,9 @@ void main() {
   List<int> numbers = [5, 10, 15, 20, 25];
 
   int sum = 0;
-  for (var number in numbers) {
-    sum = sum + number;
+  for (int i = 0; i < numbers.length; i++) {
+    sum = sum + numbers[i];
   }
-  num average = sum / 2;
-  print('the average = $average');
+  num average = sum / numbers.length;
+  print(average);
 }
