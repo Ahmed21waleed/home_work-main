@@ -4,12 +4,9 @@ void main() {
 }
 
 bool containsDuplicate(List<int> nums) {
-  for (int i = 0; i < nums.length; i++) {
-    for (int j = i + 1; j < nums.length; j++) {
-      if (nums[i] == nums[j]) {
-        return true;
-      }
-    }
+  Set<num> nonDuplicateSet = nums.toSet();
+  if (nums.length != nonDuplicateSet.length) {
+    return true;
   }
   return false;
 }
