@@ -1,12 +1,19 @@
 bool isAnagram(String s, String t) {
   if (s.length != t.length) return false;
 
-  List<String> sList = s.split('')..sort();
-  List<String> tList = t.split('')..sort();
+  List<String> sList = s.split('');
+  List<String> tList = t.split('');
 
-  return sList.join() == tList.join();
+  sList.sort();
+  tList.sort();
+
+  if (sList.join() == tList.join()) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 void main() {
-  print(isAnagram('car', 'cat'));
+  print(isAnagram('anagram', 'nagaram'));
 }
