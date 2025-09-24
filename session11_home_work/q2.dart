@@ -1,17 +1,17 @@
 import 'dart:math';
 
-abstract class Shape {
-  double area();
+class Shape {
+  double area() {
+    return 0;
+  }
 }
 
 class Rectangle extends Shape {
   double width, height;
 
-  Rectangle(this.width, this.height) {
+  Rectangle({required this.width, required this.height}) {
     if (width <= 0 || height <= 0) {
       print("Invalid rectangle size");
-      width = 1;
-      height = 1;
     }
   }
 
@@ -24,10 +24,9 @@ class Rectangle extends Shape {
 class Circle extends Shape {
   double radius;
 
-  Circle(this.radius) {
+  Circle({required this.radius}) {
     if (radius <= 0) {
       print("Invalid circle radius");
-      radius = 1;
     }
   }
 
@@ -40,11 +39,9 @@ class Circle extends Shape {
 class Triangle extends Shape {
   double base, height;
 
-  Triangle(this.base, this.height) {
+  Triangle({required this.base, required this.height}) {
     if (base <= 0 || height <= 0) {
       print("Invalid triangle dimensions");
-      base = 1;
-      height = 1;
     }
   }
 
@@ -54,32 +51,17 @@ class Triangle extends Shape {
   }
 }
 
-double computeCost(double totalArea) {
-  double cost = 0;
-
-  if (totalArea > 150) {
-    cost += (totalArea - 150) * 1.0;
-    totalArea = 150;
-  }
-  if (totalArea > 50) {
-    cost += (totalArea - 50) * 1.25;
-    totalArea = 50;
-  }
-  cost += totalArea * 1.5;
-
-  return cost;
-}
-
 void main() {
-  List<Shape> shapes = [Rectangle(5, 10), Circle(7), Triangle(6, 4)];
+  List<Shape> shapes = [
+    Rectangle(width: 10, height: 5),
+    Circle(radius: 3),
+    Triangle(base: 8, height: 6),
+  ];
 
   double totalArea = 0;
   for (var shape in shapes) {
     totalArea += shape.area();
   }
 
-  double cost = computeCost(totalArea);
-
   print("Total area: ${totalArea.toStringAsFixed(2)}");
-  print("Total cost: ${cost.toStringAsFixed(2)}");
 }
