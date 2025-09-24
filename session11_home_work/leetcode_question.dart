@@ -7,5 +7,5 @@ int singleNumber(List<int> nums) {
 }
 
 void main() {
-  print(singleNumber([2, 2, 1, 1]));
+  print(singleNumber([2, 1, 1]));
 }

@@ -14,10 +14,6 @@ class Vehicle {
   double computeFuel(double distance) {
     return distance / fuelEfficiency;
   }
-
-  bool canComplete(double distance) {
-    return computeFuel(distance) <= fuelCapacity;
-  }
 }
 
 class Car extends Vehicle {
@@ -62,11 +58,5 @@ void main() {
     }
 
     print("${vehicle.name} needs $totalFuel liters total");
-
-    for (var d in trips) {
-      if (!vehicle.canComplete(d)) {
-        print("${vehicle.name} cannot complete trip of $d km");
-      }
-    }
   }
 }
