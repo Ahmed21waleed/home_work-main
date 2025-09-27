@@ -1,5 +1,3 @@
-import 'dart:math';
-
 class Shape {
   double area() {
     return 0;
@@ -7,47 +5,57 @@ class Shape {
 }
 
 class Rectangle extends Shape {
-  double width, height;
+  double _width = 0;
+  double _height = 0;
 
-  Rectangle({required this.width, required this.height}) {
-    if (width <= 0 || height <= 0) {
+  Rectangle({required double width, required double height}) {
+    if (_width < 0 || _height < 0) {
       print("Invalid rectangle size");
+    } else {
+      _width = width;
+      _height = height;
     }
   }
 
   @override
   double area() {
-    return width * height;
+    return _width * _height;
   }
 }
 
 class Circle extends Shape {
-  double radius;
+  double _radius = 0;
 
-  Circle({required this.radius}) {
-    if (radius <= 0) {
+  Circle({required double radius}) {
+    if (_radius < 0) {
       print("Invalid circle radius");
+    } else {
+      _radius = radius;
     }
   }
 
   @override
   double area() {
-    return pi * radius * radius;
+    return 3.14159 * _radius * _radius;
   }
 }
 
 class Triangle extends Shape {
-  double base, height;
+  double _base = 0;
+  double _height = 0;
 
-  Triangle({required this.base, required this.height}) {
-    if (base <= 0 || height <= 0) {
+  Triangle({required double base, required double height}) {
+    if (_base < 0 || _height < 0) {
       print("Invalid triangle dimensions");
+    } else {
+      _base = base;
+      _height = height;
     }
   }
 
   @override
   double area() {
-    return 0.5 * base * height;
+    return 0.5 * _base * _height;
   }
 }
 
@@ -59,9 +67,20 @@ void main() {
   ];
 
   double totalArea = 0;
+  double totalPrice = 0;
   for (var shape in shapes) {
     totalArea += shape.area();
   }
 
   print("Total area: ${totalArea.toStringAsFixed(2)}");
+
+  if (totalArea <= 50) {
+    totalPrice = totalArea * 1.50;
+  } else if (totalArea <= 150) {
+    totalPrice = (50 * 1.5) + ((totalArea - 50) * 1.25);
+  } else {
+    totalPrice = (50 * 1.5) + (100 * 1.25) + ((totalArea - 150) * 1);
+  }
+
+  print('Total cost of all shapes = ${totalPrice.toStringAsFixed(2)}');
 }
