@@ -1,62 +1,81 @@
 class Vehicle {
-  String name;
-  double fuelEfficiency;
-  double fuelCapacity;
+  String _brand = 'Toyota';
+  double _year = 2005;
+  double _fuelConsumptionPerKM;
+  double currentCapacity;
 
-  Vehicle(this.name, this.fuelEfficiency, this.fuelCapacity) {
-    if (fuelEfficiency <= 0 || fuelCapacity <= 0) {
-      print("Invalid values!");
-      fuelEfficiency = 1;
-      fuelCapacity = 1;
+  Vehicle(
+    this._brand,
+    this._year,
+    this._fuelConsumptionPerKM,
+    this.currentCapacity,
+  );
+
+  set name(String brand) {
+    if (brand.isNotEmpty) {
+      _brand = brand;
+    } else {
+      print('invalid brand');
     }
   }
 
-  double computeFuel(double distance) {
-    return distance / fuelEfficiency;
+  set year(double year) {
+    if (year > 1900) {
+      _year = year;
+    } else {
+      print('invalid year');
+    }
+  }
+
+  String get brand => this._brand;
+  double get year => this._year;
+
+  double fuelConsumption(int distance) {
+    return 0;
   }
 }
 
 class Car extends Vehicle {
-  double acConsumption;
+  Car(
+    super._brand,
+    super._year,
+    super.fuelConsumptionPerKM,
+    super.currentCapacity,
+  );
 
-  Car(String name, double efficiency, double capacity, this.acConsumption)
-    : super(name, efficiency, capacity);
-
-  @override
-  double computeFuel(double distance) {
-    double baseFuel = distance / fuelEfficiency;
-    return baseFuel + acConsumption;
+  double fuelConsumption(int distance) {
+    return distance * _fuelConsumptionPerKM;
   }
 }
 
 class Truck extends Vehicle {
-  double cargoWeight;
+  Truck(
+    super._brand,
+    super._year,
+    super.fuelConsumptionPerKM,
+    super.currentCapacity,
+  );
 
-  Truck(String name, double efficiency, double capacity, this.cargoWeight)
-    : super(name, efficiency, capacity);
-
-  @override
-  double computeFuel(double distance) {
-    double baseFuel = distance / fuelEfficiency;
-    double extra = cargoWeight * 0.01;
-    return baseFuel + extra;
+  double fuelConsumption(int distance) {
+    return distance * _fuelConsumptionPerKM;
   }
 }
 
 void main() {
   List<Vehicle> vehicles = [
-    Car("Car A", 15, 40, 2),
-    Truck("Truck B", 8, 100, 500),
+    Car('Toyota', 2005, 15, 50),
+    Truck('Fiat', 2005, 8, 100),
   ];
 
-  List<double> trips = [100, 200, 300];
+  List<int> trips = [100, 200];
 
   for (var vehicle in vehicles) {
-    double totalFuel = 0;
+    double fuelConsumption = 0;
     for (var trip in trips) {
-      totalFuel += vehicle.computeFuel(trip);
+      fuelConsumption += vehicle.fuelConsumption(trip);
     }
-
-    print("${vehicle.name} needs $totalFuel liters total");
+    if (vehicle.currentCapacity < fuelConsumption) {
+      print('${vehicle.brand} cannot complete the trip');
+    }
   }
 }
