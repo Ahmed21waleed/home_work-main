@@ -1,4 +1,4 @@
-dynamic info(String firstName, String lastName, num? age) {
+info(String firstName, String lastName, num? age) {
   var fullName = firstName + ' ' + lastName;
   if (age != null) {
     print(fullName + ' ' + 'Age: $age');

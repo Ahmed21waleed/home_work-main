@@ -1,11 +1,11 @@
-int sumNumbers(int n) {
+sumNumbers(int n) {
   int sum = 0;
   for (int i = 1; i <= n; i++) {
     sum = sum + i;
   }
-  return sum;
+  return print(sum);
 }
 
 void main() {
-  print(sumNumbers(3));
+  sumNumbers(3);
 }

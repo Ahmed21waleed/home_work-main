@@ -1,4 +1,4 @@
-dynamic isPercentageValid(String productName, bool isDiscount) {
+isPercentageValid(String productName, bool isDiscount) {
   if (isDiscount) {
     print('Product has discount %');
   } else {

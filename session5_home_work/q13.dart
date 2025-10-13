@@ -2,7 +2,7 @@ void main() {
   List<String> names = ['Ali', 'Mona', 'Ali', 'Omar', 'Mona'];
   Map<String, int> nameCounts = {};
 
-  for (String name in names) {
+  for (var name in names) {
     nameCounts[name] = ((nameCounts[name] ?? 0) + 1);
   }
 

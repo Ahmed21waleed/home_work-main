@@ -5,8 +5,7 @@ Create a class Temperature with an attribute celsius. Add a method toFahrenheit(
 
 class Tempreature {
   toFahrenheit({required num celsius}) {
-    num fahrenheit = (celsius * 9 / 5) + 32;
-    return fahrenheit;
+    return (celsius * 9 / 5) + 32;
   }
 }
 

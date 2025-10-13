@@ -1,5 +1,5 @@
 class Vehicle {
-  String _brand = 'Toyota';
+  String _brand = 'Fiat';
   double _year = 2005;
   double _fuelConsumptionPerKM;
   double currentCapacity;
@@ -63,8 +63,8 @@ class Truck extends Vehicle {
 
 void main() {
   List<Vehicle> vehicles = [
-    Car('Toyota', 2005, 15, 50),
-    Truck('Fiat', 2005, 8, 100),
+    Car('BMW', 2005, 15, 50),
+    Truck('Chevrolet', 2005, 8, 100),
   ];
 
   List<int> trips = [100, 200];

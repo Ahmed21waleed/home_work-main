@@ -14,5 +14,5 @@ class NumberCheck {
 }
 
 void main() {
-  print(NumberCheck().isEven(value: 937));
+  print(NumberCheck().isEven(value: 984));
 }

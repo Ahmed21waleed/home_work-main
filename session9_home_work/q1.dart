@@ -4,8 +4,8 @@ Create a class City with attributes name and population. In main(), create two c
 */
 
 class City {
-  String name = '';
-  int population = 0;
+  String name;
+  int population;
 
   City({required this.name, required this.population});
 }

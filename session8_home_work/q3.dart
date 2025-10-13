@@ -5,8 +5,8 @@
 */
 
 class person {
-  String name = '';
-  num age = 0;
+  String name;
+  num age;
 
   person(this.name, this.age);
 

@@ -5,8 +5,8 @@ Create a class Employee with attributes name and salary. Add a method giveRaise(
 */
 
 class Employee {
-  String name = '';
-  num salary = 0;
+  String name;
+  num salary;
 
   Employee({required this.name, required this.salary});
 

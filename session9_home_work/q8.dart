@@ -12,7 +12,7 @@ void main() {
   List<String> words = sentence.toLowerCase().split(' ');
   Map<String, int> wordCounts = {};
 
-  for (String word in words) {
+  for (var word in words) {
     wordCounts[word] = (wordCounts[word] ?? 0) + 1;
   }
 

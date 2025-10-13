@@ -1,9 +1,9 @@
 void main() {
   List<int> numbers = [3, 7, 2, 9, 12, 4, 6];
 
-  for (int i = 0; i < numbers.length; i++) {
-    if (numbers[i] % 3 == 0) {
-      print(numbers[i]);
+  for (var number in numbers) {
+    if (number % 3 == 0) {
+      print(number);
     }
   }
 }

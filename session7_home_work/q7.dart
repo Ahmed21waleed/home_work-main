@@ -14,7 +14,7 @@ void main() {
   List<String> wordList = word.split(' ');
   String sentence = word.replaceAll(' ', '');
 
-  for (var wordnumber in wordList) {
+  for (var word in wordList) {
     wordCounter++;
   }
 

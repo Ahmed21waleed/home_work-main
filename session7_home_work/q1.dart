@@ -16,7 +16,7 @@ void main() {
   int num3 = int.parse(stdin.readLineSync()!);
 
   var sum = num1 + num2 + num3;
-  var average = (num1 + num2 + num3) / 3;
+  var average = sum / 3;
 
   print('The sum of your 3 numbers = $sum ');
   print('The average of your 3 numbers = $average ');
